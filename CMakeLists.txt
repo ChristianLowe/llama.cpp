@@ -246,6 +246,10 @@ target_link_libraries(llama PRIVATE ggml ${LLAMA_EXTRA_LIBS})
 if (BUILD_SHARED_LIBS)
     set_target_properties(llama PROPERTIES POSITION_INDEPENDENT_CODE ON)
     target_compile_definitions(llama PRIVATE LLAMA_SHARED LLAMA_BUILD)
+    install (TARGETS llama
+         ARCHIVE DESTINATION lib
+         LIBRARY DESTINATION lib
+         RUNTIME DESTINATION bin)
 endif()
 
 #
